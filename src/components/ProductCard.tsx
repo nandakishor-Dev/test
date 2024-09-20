@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../Redux/store";
 import { addToCart } from "../Redux/cartSlice";
 import { CartItem, Product } from "../Redux/types";
+import toast from "react-hot-toast";
 
 interface ProductCardProps {
   product: Product;
@@ -16,6 +17,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const handleAddToCart = () => {
     const productWithQuantity: CartItem = { ...product, quantity: 1 }; // Create CartItem with quantity
     dispatch(addToCart(productWithQuantity)); // Dispatch addToCart action
+    toast.success("Added to cart");
   };
 
   return (
@@ -56,7 +58,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-[#3A3A3A] backdrop-blur-sm opacity-0 group-hover:opacity-80 transition-opacity duration-300 z-0"></div>
+      <div className="absolute inset-0 bg-[#3A3A3A] backdrop-blur-sm opacity-0 group-hover:opacity-80 transition-opacity duration-500 ease-in-out z-0"></div>
     </div>
   );
 };
