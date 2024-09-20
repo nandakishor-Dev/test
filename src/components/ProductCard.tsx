@@ -34,12 +34,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       <div className="absolute gap-6 inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-        <button
-          onClick={handleAddToCart}
-          className="bg-white cursor-pointer px-8 py-4 text-[#B88E2F] font-semibold"
-        >
-          Add to Cart
-        </button>
+      <button
+  onClick={handleAddToCart}
+  className="bg-white cursor-pointer px-8 py-4 text-[#B88E2F] font-semibold hover:bg-[#e9e6e3]  transition-colors duration-300"
+>
+  Add to Cart
+</button>
+
 
         <div className="flex text-white gap-8">
           <div className="flex items-center cursor-pointer gap-1">
