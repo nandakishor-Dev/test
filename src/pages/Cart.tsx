@@ -59,6 +59,11 @@ function Cart() {
 
             {/* Product list */}
             <div className="mt-10 max-h-[300px] overflow-auto">
+              {cartItems.length === 0 && (
+                <div className="flex justify-center mt-10">
+                  No items in the cart.
+                </div>
+              )}
               {cartItems &&
                 cartItems.length > 0 &&
                 cartItems.map((item) => (
@@ -108,6 +113,7 @@ function Cart() {
               </div>
               <div>
                 <button
+                  disabled={cartItems?.length === 0}
                   onClick={handleResetCart}
                   className="border rounded-lg border-black text-md px-12 text-black py-2"
                 >
