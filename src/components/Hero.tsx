@@ -3,8 +3,8 @@ import React from "react";
 function Hero() {
   return (
     <section className="">
-      <div className="bg-[url('/images/homehero.png')]  relative   bg-cover bg-center w-screen h-[calc(100vw*9/16)] ">
-        <div className="bg-[#FFF3E3] flex flex-col gap-10 rounded-[10px] p-10 pt-16 w-fit pl-12 pr-16 absolute right-32 top-[50%] transform -translate-y-1/2 ">
+      <div className="bg-[url('/images/homehero.png')]  relative   bg-cover bg-center w-screen h-[calc(75vw*9/16)] ">
+        <div className="bg-[#FFF3E3] flex flex-col gap-10 rounded-[10px] p-10 pt-16 w-fit pl-12 pr-16 absolute right-36 top-[60%] transform -translate-y-1/2 ">
           {/* text section */}
           <div className="flex flex-col gap-2">
             <div className="font-medium text-[16px]">New Arrival</div>

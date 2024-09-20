@@ -13,7 +13,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-primary m-0 lg:px-16 px-4 border-black">
+    <nav className="bg-primary  m-0 lg:px-6 px-4 ">
       <div className="container  lg:py-6 py-4 mx-auto  flex items-center justify-between">
         <div className="text-2xl font-bold flex items-center gap-2">
           <img
@@ -24,7 +24,7 @@ function Navbar() {
           />
           <span className="font-semibold">Furniro</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center gap-24 ">
           <div className="lg:flex flex-grow items-center gap-8 justify-end mr-6 font-poppins">
             <a
               href="#"
@@ -55,8 +55,11 @@ function Navbar() {
 
           {/*icons section */}
 
-          <div>
-
+          <div className="flex gap-6">
+          <img src="/images/user.png" />
+          <img src="/images/searchicon.png" />
+          <img src="/images/hearticon.png" />
+          <img src="/images/carticon.png" />
             
           </div>
         </div>
