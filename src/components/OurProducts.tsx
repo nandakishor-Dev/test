@@ -1,4 +1,3 @@
-import React from "react";
 import ProductCard from "./ProductCard";
 import { useQuery } from "react-query";
 import axios from "axios";
@@ -34,7 +33,7 @@ function OurProducts() {
     return modifiedProducts;
   };
 
-  const { isLoading, data: productData } = useQuery({
+  const {  data: productData } = useQuery({
     queryFn: () => fetchProducts(),
     queryKey: ["fetchProducts"],
   });

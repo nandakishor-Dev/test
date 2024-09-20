@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../components/Navbar";
 import { useAppDispatch, useAppSelector } from "../Redux/store";
 import { CartItem } from "../Redux/types";
