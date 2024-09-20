@@ -1,0 +1,15 @@
+
+  @font-face {
+    font-family: 'optima';
+    src: url('/fonts/OPTIMA.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'abril';
+    src: url('/fonts/Abril_Display_Bold.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
