@@ -1,19 +1,14 @@
 // src/components/Navbar.tsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useIsScreenBelowLg from "../../hooks/useIsScreenBelowLg";
+import { useAppSelector } from "../../Redux/store";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-
-  const isBelowLg = useIsScreenBelowLg();
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const cartItems = useAppSelector((state) => state.cart.items);
 
   return (
-    <nav className="bg-primary  m-0 lg:px-6 px-4 ">
+    <nav className="bg-primary  m-0 lg:px-12 px-4 ">
       <div className="container  lg:py-6 py-4 mx-auto  flex items-center justify-between">
         <div className="text-2xl font-bold flex items-center gap-2">
           <img
@@ -22,11 +17,17 @@ function Navbar() {
             className="cursor-pointer"
             alt="logo"
           />
-          <span className="font-semibold">Furniro</span>
+          <span
+            className="font-bold text-3xl cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            Furniro
+          </span>
         </div>
         <div className="flex items-center gap-24 ">
           <div className="lg:flex flex-grow items-center gap-8 justify-end mr-6 font-poppins">
             <a
+              onClick={() => navigate("/")}
               href="#"
               className="text-black px-4 py-2 text-navLg font-poppins"
             >
@@ -56,11 +57,28 @@ function Navbar() {
           {/*icons section */}
 
           <div className="flex gap-6">
-          <img src="/images/user.png" />
-          <img src="/images/searchicon.png" />
-          <img src="/images/hearticon.png" />
-          <img src="/images/carticon.png" />
-            
+            <img alt="" className="cursor-pointer" src="/images/user.png" />
+            <img
+              alt=""
+              className="cursor-pointer"
+              src="/images/searchicon.png"
+            />
+            <img
+              alt=""
+              className="cursor-pointer"
+              src="/images/hearticon.png"
+            />
+            <div
+              className="relative cursor-pointer"
+              onClick={() => navigate("/cart")}
+            >
+              <img src="/images/carticon.png" alt="Cart" />
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
+                  {cartItems.length}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>

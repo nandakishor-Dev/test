@@ -22,7 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className="relative  bg-[#F4F5F7] flex items-center flex-col gap-4 group">
       <img src={product?.image} alt="" className="h-80 w-full" />
-      <div className="flex flex-col p-4 w-full gap-2 z-10">
+      <div className="flex flex-col p-4 w-full gap-2 z-10 ">
         <span className="text-xl">{product?.title}</span>
         <span>{product?.category}</span>
         <div className="flex justify-between">
@@ -57,7 +57,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-[#727374] backdrop-blur-sm opacity-0 group-hover:opacity-80 transition-opacity duration-300 z-0"></div>
+      <div className="absolute inset-0 bg-[#3A3A3A] backdrop-blur-sm opacity-0 group-hover:opacity-80 transition-opacity duration-300 z-0"></div>
     </div>
   );
 };
