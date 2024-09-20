@@ -1,25 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../Redux/store";
+import { addToCart } from "../Redux/cartSlice";
+import { CartItem, Product } from "../Redux/types"; 
 
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  oldPrice?: number; // optional because it's added dynamically
-  image: string;
-  description: string;
-  category: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
 
 interface ProductCardProps {
   product: Product;
 }
 
-
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const dispatch = useAppDispatch();
+  const cartItems = useAppSelector((state) => state.cart.items);
+  useEffect(() => {
+    console.log('Current Cart State:', cartItems);
+  }, [cartItems]);
+  const handleAddToCart = () => {
+    const productWithQuantity: CartItem = { ...product, quantity: 1 }; // Create CartItem with quantity
+    dispatch(addToCart(productWithQuantity)); // Dispatch addToCart action
+  };
+
   return (
     <div className="relative  bg-[#F4F5F7] flex items-center flex-col gap-4 group">
       <img src={product?.image} alt="" className="h-80 w-full" />
@@ -28,12 +27,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <span>{product?.category}</span>
         <div className="flex justify-between">
           <span className="font-semibold">Rp {product?.price}</span>
-          <span className="opacity-50 line-through">Rp {product?.oldPrice}</span>
+          <span className="opacity-50 line-through">
+            Rp {product?.oldPrice}
+          </span>
         </div>
       </div>
 
       <div className="absolute gap-6 inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-        <button className="bg-white cursor-pointer px-8 py-4 text-[#B88E2F] font-semibold">
+        <button
+          onClick={handleAddToCart}
+          className="bg-white cursor-pointer px-8 py-4 text-[#B88E2F] font-semibold"
+        >
           Add to Cart
         </button>
 
@@ -56,6 +60,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="absolute inset-0 bg-[#727374] backdrop-blur-sm opacity-0 group-hover:opacity-80 transition-opacity duration-300 z-0"></div>
     </div>
   );
-}
+};
 
 export default ProductCard;
