@@ -1,7 +1,8 @@
 import Navbar from "../components/Navbar";
 import { useAppDispatch, useAppSelector } from "../Redux/store";
 import { CartItem } from "../Redux/types";
-import { removeFromCart } from "../Redux/cartSlice";
+import { removeFromCart, resetCart } from "../Redux/cartSlice";
+import toast from "react-hot-toast";
 
 export interface CartState {
   items: CartItem[];
@@ -18,6 +19,11 @@ function Cart() {
 
   const handleRemoveFromCart = (id: number) => {
     dispatch(removeFromCart(id)); // Remove product from cart
+  };
+
+  const handleResetCart = () => {
+    toast.success("Order placed successfully");
+    dispatch(resetCart());
   };
   return (
     <div>
@@ -101,7 +107,10 @@ function Cart() {
                 </div>
               </div>
               <div>
-                <button className="border rounded-lg border-black text-md px-12 text-black py-2">
+                <button
+                  onClick={handleResetCart}
+                  className="border rounded-lg border-black text-md px-12 text-black py-2"
+                >
                   Check Out
                 </button>
               </div>

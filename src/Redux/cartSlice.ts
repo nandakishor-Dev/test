@@ -27,11 +27,12 @@ export const cartSlice = createSlice({
         state.items.splice(index, 1);
       }
     },
+    resetCart: () => initialState,
   },
 });
 
 // Export the actions
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart,resetCart } = cartSlice.actions;
 
 // Export the reducer
 export default cartSlice.reducer;
